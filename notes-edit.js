@@ -1,3 +1,5 @@
+'use strict'
+
 const titleEl = document.querySelector("#note-title");
 const bodyEl = document.querySelector("#note-body");
 const removeButton = document.querySelector("#remove-note");
@@ -6,7 +8,7 @@ const noteId = location.hash.substring(1);
 let notes = getSavedNotes();
 let note = notes.find((note) => note.id === noteId);
 
-if (note === undefined) {
+if (!note) {
   location.assign("/index.html");
 }
 
@@ -39,7 +41,7 @@ window.addEventListener("storage", (e) => {
     notes = JSON.parse(e.newValue);
     note = notes.find((note) => note.id === noteId);
 
-    if (note === undefined) {
+    if (!note) {
       location.assign("/index.html");
     }
 
