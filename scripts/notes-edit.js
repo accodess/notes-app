@@ -9,7 +9,7 @@ let notes = getSavedNotes();
 let note = notes.find((note) => note.id === noteId);
 
 if (!note) {
-  location.assign("notes-app/index.html");
+  location.assign("notes-app");
 }
 
 titleEl.value = note.title;
@@ -33,7 +33,7 @@ bodyEl.addEventListener("input", (e) => {
 removeButton.addEventListener("click", () => {
   removeNote(note.id);
   saveNotes(notes);
-  location.assign("notes-app/index.html");
+  location.assign("notes-app");
 });
 
 window.addEventListener("storage", (e) => {
@@ -42,7 +42,7 @@ window.addEventListener("storage", (e) => {
     note = notes.find((note) => note.id === noteId);
 
     if (!note) {
-      location.assign("notes-app/index.html");
+      location.assign("notes-app");
     }
 
     titleEl.value = note.title;
